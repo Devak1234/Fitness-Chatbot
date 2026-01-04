@@ -340,39 +340,111 @@ Provide suggestions for improvements, balance, and any concerns.`;
       {weeklyWorkoutPlan && (
         <Card title="Weekly Workout Schedule" subtitle={`${planSettings.daysPerWeek} • ${planSettings.experienceLevel}`}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {weeklyWorkoutPlan.map((dayPlan, index) => (
-              <DayCard
-                key={index}
-                dayName={dayPlan.day}
-                metaText={dayPlan.focus}
-                isExpanded={selectedWorkoutDay === index}
-                onView={() => setSelectedWorkoutDay(selectedWorkoutDay === index ? null : index)}
-                onRegenerate={() => regenerateWorkoutDay(index)}
-                onEdit={() => openSwapModal(index, 0)}
-              >
-                {selectedWorkoutDay === index && (
-                  <div className="space-y-4 mt-4 animate-fade-in">
-                    {dayPlan.exercises.map((exercise, idx) => (
-                      <div key={idx} className="flex gap-4 p-3 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
-                        <img
-                          src={getExerciseImage(exercise.name)}
-                          alt={exercise.name}
-                          className="w-16 h-16 rounded-lg object-cover bg-input shrink-0"
-                          onError={(e) => { e.target.src = fallbackImages.exercise; }}
-                        />
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-bold text-main truncate leading-tight mb-1">{exercise.name}</h4>
-                          <span className="inline-block px-2 py-0.5 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 rounded-full text-xs font-medium mb-1.5">{exercise.primaryMuscle}</span>
-                          <div className="flex items-center gap-3 text-xs text-sub">
-                            <span>Sets: <span className="font-semibold text-main">{getRecommendedSetsReps(exercise, planSettings.goal)}</span></span>
-                          </div>
+            {weeklyWorkoutPlan.map((dayPlan, index) => {
+              const isExpanded = selectedWorkoutDay === index;
+              const previewImage = dayPlan.exercises[0]?.name ? getExerciseImage(dayPlan.exercises[0].name) : fallbackImages.exercise;
+
+              return (
+                <div
+                  key={index}
+                  className={`flex flex-col bg-card rounded-2xl border border-border shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md ${isExpanded ? 'col-span-1 md:col-span-2 lg:col-span-3 ring-2 ring-primary/20' : ''}`}
+                >
+                  {/* Card Header & Preview */}
+                  <div className="relative h-48 bg-input overflow-hidden group">
+                    {/* Image Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+                    <img
+                      src={previewImage}
+                      alt={dayPlan.focus}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => { e.target.src = fallbackImages.exercise; }}
+                    />
+
+                    <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
+                      <h3 className="text-xl font-bold text-white mb-1 shadow-sm">{dayPlan.day}</h3>
+                      <div className="flex items-center gap-2">
+                        <span className="px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-semibold border border-white/10">
+                          {dayPlan.focus}
+                        </span>
+                        <span className="text-xs text-gray-300 font-medium">
+                          {dayPlan.exercises.length} Exercises
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card Body - Muscles */}
+                  <div className="p-5 flex-1 flex flex-col gap-4">
+                    {!isExpanded && (
+                      <div className="space-y-2">
+                        <span className="text-xs font-bold text-sub uppercase tracking-wider">Target Muscles</span>
+                        <div className="flex flex-wrap gap-2">
+                          {dayPlan.muscles.slice(0, 4).map(m => (
+                            <span key={m} className="px-2 py-1 rounded-md bg-input text-sub text-xs font-medium border border-border/50">
+                              {m}
+                            </span>
+                          ))}
+                          {dayPlan.muscles.length > 4 && (
+                            <span className="px-2 py-1 rounded-md bg-input text-sub text-xs font-medium border border-border/50">+{dayPlan.muscles.length - 4}</span>
+                          )}
                         </div>
                       </div>
-                    ))}
+                    )}
+
+                    {/* Expanded Content */}
+                    {isExpanded && (
+                      <div className="space-y-4 animate-fade-in mt-2">
+                        <div className="flex justify-between items-center border-b border-border pb-2 mb-2">
+                          <h4 className="font-bold text-main">Session Breakdown</h4>
+                          <Button size="small" variant="ghost" onClick={() => openSwapModal(index, 0)} className="text-xs">
+                            Compare / Swap
+                          </Button>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {dayPlan.exercises.map((exercise, idx) => (
+                            <div key={idx} className="flex gap-3 p-3 bg-input/30 rounded-xl border border-border/50 hover:bg-input/50 transition-colors">
+                              <img
+                                src={getExerciseImage(exercise.name)}
+                                alt={exercise.name}
+                                className="w-14 h-14 rounded-lg object-cover bg-card shrink-0"
+                                onError={(e) => { e.target.src = fallbackImages.exercise; }}
+                              />
+                              <div className="flex-1 min-w-0 flex flex-col justify-center">
+                                <h4 className="text-sm font-bold text-main truncate leading-tight mb-1">{exercise.name}</h4>
+                                <div className="flex items-center gap-3 text-xs text-sub">
+                                  <span className="bg-card px-2 py-0.5 rounded shadow-sm border border-border/50">{getRecommendedSetsReps(exercise, planSettings.goal)}</span>
+                                  <span className="opacity-70">{exercise.primaryMuscle}</span>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3 mt-auto pt-2">
+                      <Button
+                        onClick={() => setSelectedWorkoutDay(isExpanded ? null : index)}
+                        variant={isExpanded ? "primary" : "outline"}
+                        className="flex-1 justify-center shadow-sm"
+                      >
+                        {isExpanded ? 'Close Plan' : 'View Exercises'}
+                      </Button>
+
+                      <Button
+                        onClick={() => regenerateWorkoutDay(index)}
+                        variant="ghost"
+                        className="px-3 text-sub hover:text-main"
+                        title="Regenerate this day"
+                      >
+                        🔄
+                      </Button>
+                    </div>
                   </div>
-                )}
-              </DayCard>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </Card>
       )}
