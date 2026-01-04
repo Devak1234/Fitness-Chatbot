@@ -1,0 +1,34 @@
+.workout-plan-card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+.workout-plan-card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.workouts {
+  margin-bottom: 1rem;
+}
+
+.workout-day {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.save-plan-btn {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-plan-btn:hover {
+  background-color: #0b7dda;
+}

@@ -1,0 +1,365 @@
+.plans-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plans-page h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.page-description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Section Tabs */
+.section-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.section-tabs button {
+  flex: 1;
+  padding: 1rem 2rem;
+  background: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.section-tabs button:hover {
+  background: #e9ecef;
+  color: #333;
+}
+
+.section-tabs button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Filters Section */
+.filters-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.filter-group select {
+  padding: 0.75rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Plans Grid */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.plan-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.plan-header {
+  margin-bottom: 1rem;
+}
+
+.plan-header h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.plan-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge.level-beginner {
+  background: #e8f5e8;
+  color: #2d5016;
+}
+
+.badge.level-intermediate {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.badge.level-advanced {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.badge.category-weight-loss {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.badge.category-weight-gain {
+  background: #d4edda;
+  color: #155724;
+}
+
+.badge.category-muscle-gain {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.badge.category-maintenance {
+  background: #f8f9fa;
+  color: #6c757d;
+}
+
+.plan-description {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.plan-details {
+  margin-bottom: 1.5rem;
+}
+
+.diet-details, .workout-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-item span {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.detail-item strong {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.plan-benefits {
+  margin-bottom: 2rem;
+}
+
+.plan-benefits h4 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.plan-benefits ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-benefits li {
+  padding: 0.25rem 0;
+  color: #555;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.plan-benefits li:before {
+  content: "✓";
+  color: #4CAF50;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.select-plan-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select-plan-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* No Plans Message */
+.no-plans {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.no-plans p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Workout Plans Section */
+.workout-plans-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.workout-plans-section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .plans-page {
+    padding: 1rem;
+  }
+
+  .plans-page h1 {
+    font-size: 2rem;
+  }
+
+  .section-tabs {
+    flex-direction: column;
+  }
+
+  .section-tabs button {
+    padding: 0.75rem 1rem;
+  }
+
+  .filter-tabs {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .plan-card {
+    padding: 1.5rem;
+  }
+
+  .diet-details, .workout-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .plans-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .plan-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .plan-badges {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .badge {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,119 @@
+.active-plan-banner {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  padding: 12px 24px;
+  box-shadow: 0 2px 8px var(--glass);
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.plan-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.plan-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.today-summary {
+  display: flex;
+  gap: 24px;
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+}
+
+.today-workout,
+.today-diet {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.banner-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Review Modal Styles */
+.review-content {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.loading-review {
+  text-align: center;
+  padding: 40px;
+  color: var(--muted);
+}
+
+.loading-review .typing-dots {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.loading-review .typing-dots span {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.loading-review .typing-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-review .typing-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typing {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Dark theme support (Removed invalid lines) */
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .active-plan-banner {
+    padding: 12px 16px;
+  }
+
+  .banner-content {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .today-summary {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .banner-actions {
+    justify-content: center;
+  }
+}

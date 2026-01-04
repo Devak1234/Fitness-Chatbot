@@ -1,0 +1,251 @@
+.notification-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.notification-unsupported {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.unsupported-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.unsupported-icon+h3 {
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.unsupported-icon+h3+p {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* Permission Card */
+.permission-card {
+  border-left: 4px solid var(--accent);
+}
+
+.permission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.permission-header h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--font-size-lg);
+}
+
+.permission-description {
+  color: var(--muted);
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+/* Notification Types */
+.notification-types {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.notification-type-card {
+  transition: all 0.2s ease;
+}
+
+.notification-type-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.notification-type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.type-info {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.type-icon {
+  font-size: 32px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--glass);
+  border-radius: var(--card-radius);
+  flex-shrink: 0;
+}
+
+.type-info h4 {
+  margin: 0 0 4px 0;
+  color: var(--text);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
+
+.type-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--muted);
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked+.toggle-slider {
+  background-color: var(--accent);
+}
+
+.toggle-switch input:checked+.toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.toggle-switch input:disabled+.toggle-slider {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Notification Configuration */
+.notification-config {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.config-label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.time-input,
+.interval-select {
+  padding: 8px 12px;
+  border: 2px solid var(--muted);
+  border-radius: var(--card-radius);
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: var(--font-size-sm);
+  transition: border-color 0.2s ease;
+}
+
+.time-input:focus,
+.interval-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Action Buttons */
+.notification-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--muted);
+}
+
+/* Info Note */
+.notification-info {
+  background-color: var(--glass);
+  padding: 16px;
+  border-radius: var(--card-radius);
+  border-left: 4px solid var(--warning);
+}
+
+.notification-info p {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.notification-info strong {
+  color: var(--warning);
+}
+
+/* Dark theme support (Removed invalid lines) */
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .notification-type-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .type-info {
+    width: 100%;
+  }
+
+  .notification-config {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .config-label {
+    white-space: normal;
+  }
+
+  .notification-actions {
+    flex-direction: column;
+  }
+
+  .notification-actions button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,19 @@
+.day-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 140px;
+  justify-content: space-between;
+}
+
+.day-card .card-header {
+  margin-bottom: var(--space-3);
+}
+
+.day-card .card-actions {
+  align-self: flex-end;
+  margin-top: 0;
+}
+
+.day-card .card-content {
+  flex: 1;
+}

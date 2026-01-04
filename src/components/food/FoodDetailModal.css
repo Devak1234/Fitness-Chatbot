@@ -1,0 +1,157 @@
+.food-detail-modal {
+  /* Modal content styling */
+}
+
+.food-detail-header {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.food-image-section {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.food-detail-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+  border: 2px solid var(--muted);
+}
+
+.food-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.food-info-section {
+  flex: 1;
+}
+
+.food-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.serving-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.serving-label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: var(--font-size-sm);
+}
+
+.serving-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nutrition-section h3 {
+  margin: 0 0 16px 0;
+  color: var(--text);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.macros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.macro-card {
+  background-color: var(--panel);
+  border: 1px solid var(--muted);
+  border-radius: var(--card-radius);
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.macro-card:hover {
+  background-color: var(--glass);
+  border-color: var(--accent);
+}
+
+.macro-value {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.macro-label {
+  font-size: var(--font-size-sm);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.nutrition-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.detail-section h4 {
+  margin: 0 0 12px 0;
+  color: var(--text);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
+
+.nutrition-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Dark theme support (Removed invalid lines) */
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .food-detail-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .food-detail-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .macros-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nutrition-details {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .serving-options {
+    justify-content: center;
+  }
+}

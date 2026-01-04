@@ -1,0 +1,184 @@
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--text-secondary);
+}
+
+.icon-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left var(--transition-slow);
+}
+
+.icon-btn:hover::before:not(:disabled) {
+  left: 100%;
+}
+
+.icon-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.icon-btn:disabled::before {
+  display: none;
+}
+
+/* Icon button variants */
+.icon-btn-default {
+  color: var(--text-secondary);
+  background-color: transparent;
+}
+
+.icon-btn-default:hover:not(:disabled) {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+.icon-btn-primary {
+  color: var(--text-inverse);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.icon-btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+.icon-btn-secondary {
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  border-color: var(--border-medium);
+}
+
+.icon-btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-dark);
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: var(--shadow-sm);
+}
+
+.icon-btn-outline {
+  color: var(--color-primary);
+  background-color: transparent;
+  border-color: var(--color-primary);
+}
+
+.icon-btn-outline:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: var(--shadow-colored);
+}
+
+.icon-btn-ghost {
+  color: var(--text-secondary);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.icon-btn-ghost:hover:not(:disabled) {
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  transform: scale(1.05);
+}
+
+.icon-btn-success {
+  color: var(--text-inverse);
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.icon-btn-success:hover:not(:disabled) {
+  background-color: var(--color-success-dark);
+  border-color: var(--color-success-dark);
+  transform: translateY(-1px) scale(1.05);
+}
+
+.icon-btn-danger {
+  color: var(--text-inverse);
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.icon-btn-danger:hover:not(:disabled) {
+  background-color: var(--color-danger-dark);
+  border-color: var(--color-danger-dark);
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* Icon button sizes */
+.icon-btn-sm {
+  width: var(--space-8);
+  height: var(--space-8);
+  font-size: var(--font-size-sm);
+}
+
+.icon-btn-md {
+  width: var(--space-10);
+  height: var(--space-10);
+  font-size: var(--font-size-base);
+}
+
+.icon-btn-lg {
+  width: var(--space-12);
+  height: var(--space-12);
+  font-size: var(--font-size-lg);
+}
+
+.icon-btn-xl {
+  width: var(--space-16);
+  height: var(--space-16);
+  font-size: var(--font-size-xl);
+}
+
+/* Focus styles */
+.icon-btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.icon-btn-loading {
+  position: relative;
+  color: transparent;
+}
+
+.icon-btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  margin-left: -6px;
+  margin-top: -6px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--text-secondary);
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
